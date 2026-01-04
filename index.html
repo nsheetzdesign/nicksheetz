@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nick Sheetz | Operations & Product Leader</title>
+    <title>Nick Sheetz | Operations & Automation Leader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -355,6 +355,116 @@
             margin-top: 0.25rem;
         }
 
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(34, 211, 238, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-dim);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .service-card h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-detail svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        .service-price {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .services-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
         /* Skills Section */
         .skills {
             max-width: 1200px;
@@ -420,6 +530,36 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--bg-secondary);
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .testimonial-placeholder {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .testimonial-placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
         }
 
         /* Experience Section */
@@ -625,12 +765,12 @@
                 pointer-events: all;
             }
 
-            section {
-                padding: 4rem 1.5rem;
-            }
-
             .hero {
                 padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
             }
 
             .about-grid {
@@ -649,7 +789,15 @@
             }
 
             .stat-number {
-                font-size: 1.75rem;
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
 
             .timeline::before {
@@ -657,25 +805,16 @@
             }
 
             .timeline-dot {
-                left: -1px;
+                left: 0;
             }
 
             .timeline-item {
                 padding-left: 2rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -692,7 +831,7 @@
         </button>
         <ul class="nav-links">
             <li><a href="#about" onclick="closeMenu()">About</a></li>
-            <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
             <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
             <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
         </ul>
@@ -703,13 +842,13 @@
         <div class="hero-content">
             <div class="hero-tag">
                 <span class="dot"></span>
-                <span>Available for opportunities</span>
+                <span>Taking on new projects</span>
             </div>
-            <h1>Turning <span class="accent">complexity</span> into clarity & results</h1>
-            <p class="hero-description">Operations & Product Leader with 10+ years of experience building teams, shipping products, and leveraging automation and AI to drive strategic initiatives from vision to execution.</p>
+            <h1>I build <span class="accent">automations</span> that eliminate busywork</h1>
+            <p class="hero-description">Operations leader turned automation builder. I help small teams eliminate manual work using n8n, AI, and Notion—delivered in days, not months.</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#experience" class="btn btn-secondary">View Experience</a>
+                <a href="https://calendly.com/nsheetz09/15-minute-automation-audit" target="_blank" class="btn btn-primary">Book a Free Audit</a>
+                <a href="#services" class="btn btn-secondary">View Services</a>
             </div>
         </div>
     </section>
@@ -723,79 +862,138 @@
             </div>
             <div class="about-content">
                 <h3>Strategy Meets Execution</h3>
-                <p>I'm Nick Sheetz, an Operations & Product Leader based in Warrenville, IL. I build and lead high-performing teams, launch new departments, and drive cross-functional initiatives that deliver measurable business impact. I'm passionate about leveraging automation and AI virtual staffing solutions to help organizations scale efficiently without scaling headcount proportionally.</p>
-                <p>My strength lies in bridging strategy and execution—translating organizational goals into actionable roadmaps, aligning stakeholders, and creating the systems and processes that scale. Whether it's building intelligent workflows, deploying AI-powered tools, or leading complex transformation initiatives, I thrive in environments where I can shape vision and lead teams to deliver results.</p>
+                <p>I'm Nick Sheetz, an Operations & Automation Leader based in Warrenville, IL. For 10+ years I've built teams, launched departments, and delivered complex initiatives. Now I help founders and small teams automate the manual work that's eating their time.</p>
+                <p>I don't just advise—I build. Using n8n, AI, and modern tools, I create systems that run without you. Fixed scope, fast delivery, immediate ROI.</p>
                 <div class="about-stats">
                     <div class="stat">
                         <div class="stat-number">10+</div>
-                        <div class="stat-label">Years Leadership</div>
+                        <div class="stat-label">Years Ops Experience</div>
                     </div>
                     <div class="stat">
                         <div class="stat-number">$2M+</div>
                         <div class="stat-label">Projects Delivered</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Campuses Managed</div>
+                        <div class="stat-number">3-7</div>
+                        <div class="stat-label">Days to Delivery</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills">
-        <div class="skills">
+    <section id="services">
+        <div class="services">
             <div class="section-header">
-                <div class="section-tag">Expertise</div>
-                <h2 class="section-title">What I Bring to the Table</h2>
+                <div class="section-tag">Services</div>
+                <h2 class="section-title">Automation That Delivers</h2>
             </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🎯</div>
-                    <h4>Product Strategy & Roadmapping</h4>
-                    <p>Defining product vision, prioritizing initiatives, and building roadmaps that align business goals with customer needs and market opportunity.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h4>AI-Powered Lead Workflow</h4>
+                    <p>Automated system that captures leads, enriches them with AI, routes to your CRM, and alerts your team—no manual data entry.</p>
+                    <div class="service-details">
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>Form/intake integration</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>AI enrichment & scoring</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>CRM + Slack/email alerts</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>3-5 day delivery</span>
+                        </div>
+                    </div>
+                    <div class="service-price">Starting at $2,500</div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <h4>Operations Leadership</h4>
-                    <p>Building scalable processes, launching new departments, and creating operational infrastructure that improves efficiency and enables growth.</p>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h4>Ops Dashboard + Automation</h4>
+                    <p>Notion-based operations hub with 3 custom automated workflows. Get visibility and eliminate manual work in one project.</p>
+                    <div class="service-details">
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>Custom Notion workspace</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>3 n8n automations</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>Automation audit included</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>5-7 day delivery</span>
+                        </div>
+                    </div>
+                    <div class="service-price">Starting at $3,500</div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🤖</div>
-                    <h4>AI Virtual Staffing & Agents</h4>
-                    <p>Designing and deploying AI-powered virtual staff and autonomous agents that handle repetitive tasks, customer interactions, and workflows—enabling teams to scale output without scaling headcount.</p>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h4>Custom n8n Workflow</h4>
+                    <p>Any workflow, any complexity. Tell me what manual process is eating your time and I'll automate it.</p>
+                    <div class="service-details">
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>Any tools/integrations</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>AI capabilities included</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>Documentation + training</span>
+                        </div>
+                        <div class="service-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            <span>2-4 day delivery</span>
+                        </div>
+                    </div>
+                    <div class="service-price">Starting at $1,500</div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h4>Workflow Automation</h4>
-                    <p>Architecting end-to-end automation solutions that connect systems, eliminate manual work, and create intelligent workflows. Expert in identifying high-impact automation opportunities and building solutions that deliver ROI.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📋</div>
-                    <h4>Program & Project Management</h4>
-                    <p>Leading complex, cross-functional initiatives from scoping through delivery. Defining success criteria, managing stakeholders, and driving results on time and on budget.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">👥</div>
-                    <h4>Team Building & Leadership</h4>
-                    <p>Recruiting, developing, and leading high-performing teams. Creating culture, defining roles, and empowering people to do their best work.</p>
-                </div>
+            </div>
+            <div class="services-cta">
+                <p>Not sure what you need? Let's talk through it.</p>
+                <a href="https://calendly.com/nsheetz09/15-minute-automation-audit" target="_blank" class="btn btn-primary">Book a Free 15-Min Audit</a>
             </div>
         </div>
     </section>
 
     <section class="experience" id="experience">
         <div class="section-header">
-            <div class="section-tag">Career</div>
-            <h2 class="section-title">Professional Journey</h2>
+            <div class="section-tag">Background</div>
+            <h2 class="section-title">Professional Experience</h2>
         </div>
         <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">January 2020 – Present</div>
+                <h3 class="timeline-title">Operations & Automation Consultant</h3>
+                <div class="timeline-company">Independent</div>
+                <p class="timeline-description">Design and build automation solutions, AI virtual staffing implementations, and system integrations for small and medium-sized businesses. Specialize in deploying AI-powered workflows that handle customer interactions, data processing, and repetitive operational tasks—enabling lean teams to scale output without scaling headcount.</p>
+                <div class="timeline-tags">
+                    <span class="timeline-tag">Automation</span>
+                    <span class="timeline-tag">AI Integration</span>
+                    <span class="timeline-tag">n8n</span>
+                    <span class="timeline-tag">Notion</span>
+                </div>
+            </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">March 2023 – Present</div>
                 <h3 class="timeline-title">Director of Business Process & Analytics</h3>
                 <div class="timeline-company">LCP Media</div>
-                <p class="timeline-description">Promoted to launch and lead a brand new department focused on building internal platforms, automation infrastructure, and system integrations. Defined the department's vision and strategic roadmap from scratch, prioritizing initiatives that connect business systems, eliminate manual work, and dramatically improve team productivity across the organization. Work closely with engineering, product, and executive leadership to ship API integrations, custom applications, and intelligent workflow automation that delivers measurable ROI. Led the integration of AI-powered tools and virtual staffing solutions to enhance marketing effectiveness, content personalization, and operational efficiency. Overhauled the company's HubSpot CRM instance—executing a comprehensive data cleanup, optimizing sales and marketing workflows, and enabling advanced automation that improved lead management and conversion tracking. Collaborate with stakeholders across all departments to gather requirements, scope solutions, and measure impact through clear metrics and continuous user feedback loops.</p>
+                <p class="timeline-description">Launched and lead a new department focused on building internal platforms, automation infrastructure, and system integrations. Define strategic roadmap, ship API integrations, custom applications, and intelligent workflow automation. Led integration of AI-powered tools and overhauled HubSpot CRM instance.</p>
                 <div class="timeline-tags">
                     <span class="timeline-tag">Department Leadership</span>
                     <span class="timeline-tag">Product Strategy</span>
@@ -808,7 +1006,7 @@
                 <div class="timeline-date">April 2022 – March 2023</div>
                 <h3 class="timeline-title">Project Manager of Internal Operations</h3>
                 <div class="timeline-company">LCP Media</div>
-                <p class="timeline-description">Built a custom project management platform from the ground up to dramatically improve visibility and coordination across teams. Gathered requirements from stakeholders across multiple departments, defined project scope and success metrics, and partnered with technical resources to design, develop, and launch the platform. Integrated automation and API connections throughout the system to reduce manual data entry, eliminate redundant work, and seamlessly connect with existing tools in the company's tech stack. Defined integration requirements across ambiguous and evolving business needs, working closely with stakeholders to scope API connections between disparate systems. Served as the bridge between technical and non-technical teams—translating engineering constraints into clear business outcomes and facilitating alignment on trade-offs, timelines, and expected impact. Developed scalable processes that improved operational efficiency, empowering the team to handle significantly increased project volume without proportional headcount growth.</p>
+                <p class="timeline-description">Built a custom project management platform from the ground up. Gathered requirements from stakeholders, defined scope and success metrics, and partnered with technical resources to design, develop, and launch. Integrated automation and API connections to reduce manual data entry and connect with existing tools.</p>
                 <div class="timeline-tags">
                     <span class="timeline-tag">Project Management</span>
                     <span class="timeline-tag">Platform Development</span>
@@ -818,23 +1016,10 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <div class="timeline-date">January 2020 – Present</div>
-                <h3 class="timeline-title">Operations & Automation Consultant</h3>
-                <div class="timeline-company">Freelance</div>
-                <p class="timeline-description">Design and build automation solutions, AI virtual staffing implementations, and system integrations for small and medium-sized businesses. Partner with clients to deeply understand their workflows, identify high-impact automation opportunities, and implement solutions that deliver immediate efficiency gains. Specialize in deploying AI-powered virtual staff and autonomous agents that handle customer interactions, data processing, and repetitive operational tasks—enabling lean teams to scale output dramatically. Architect end-to-end workflow automation using REST APIs, webhooks, and integration platforms, translating complex business requirements into clear technical specifications. Lead client workshops and solution presentations, demonstrating automation strategies and conducting live demos to ensure clarity, buy-in, and successful adoption across teams. Collaborate with stakeholders across sales, marketing, and operations to develop automation strategies that align with organizational goals, reduce costs, and accelerate growth.</p>
-                <div class="timeline-tags">
-                    <span class="timeline-tag">Automation</span>
-                    <span class="timeline-tag">AI Virtual Staffing</span>
-                    <span class="timeline-tag">Consulting</span>
-                    <span class="timeline-tag">API Integration</span>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
                 <div class="timeline-date">October 2014 – April 2022</div>
                 <h3 class="timeline-title">Director, Multi-Campus Operations</h3>
                 <div class="timeline-company">Christ Community Church</div>
-                <p class="timeline-description">Progressed through multiple leadership roles from Lighting & Scenic Director to Student Ministries Programming Lead Director, ultimately overseeing programming and production operations across 5 campus locations serving thousands of attendees weekly. Managed over $2M in creative production and technology capital improvement projects—owning the entire lifecycle from needs analysis and vendor negotiations through on-time, on-budget delivery. Led teams of 10-15+ staff and volunteers, coordinating schedules, fostering collaborative culture, and maintaining high standards across all campuses. Spearheaded a comprehensive rebranding initiative for the Jr. High ministry and successfully launched new programming that unified Jr. High and Sr. High students into a cohesive community. Directed all social media and digital content strategy, managing the ministry's digital presence to increase engagement and connection with students and families. Administered Planning Center platforms for weekend services and student ministry across all locations—managing scheduling workflows, coordinating production teams, and training staff on system usage. Conducted regular interviews with students, parents, and volunteers to inform programming decisions, ensuring events and services remained relevant and impactful.</p>
+                <p class="timeline-description">Oversaw programming and production operations across 5 campus locations. Managed over $2M in creative production and technology capital improvement projects. Led teams of 10-15+ staff and volunteers, coordinating schedules and maintaining high standards across all campuses.</p>
                 <div class="timeline-tags">
                     <span class="timeline-tag">Multi-Site Operations</span>
                     <span class="timeline-tag">Team Leadership</span>
@@ -847,25 +1032,23 @@
                 <div class="timeline-date">December 2013 – September 2014</div>
                 <h3 class="timeline-title">Site Lead / Project Manager</h3>
                 <div class="timeline-company">Wave AVL</div>
-                <p class="timeline-description">Managed a diverse portfolio of audiovisual integration projects for clients nationwide, including serving as Site Lead on a $2.25 million installation in Fredericksburg, VA. Served as the primary liaison between clients and the company, translating technical requirements into clear project plans and maintaining strong relationships throughout the project lifecycle. Led teams of 10-15 staff and freelance installers, coordinating complex schedules across multiple concurrent projects while ensuring seamless execution and high-quality standards. Conducted detailed risk assessments and proactively addressed issues before they impacted timelines or budgets. Demonstrated quick thinking and adaptability in overcoming unexpected project challenges, consistently delivering successful completions despite shifting circumstances and tight deadlines.</p>
+                <p class="timeline-description">Managed diverse portfolio of audiovisual integration projects nationwide, including serving as Site Lead on a $2.25M installation. Led teams of 10-15 staff and freelance installers, coordinating complex schedules across multiple concurrent projects.</p>
                 <div class="timeline-tags">
                     <span class="timeline-tag">Project Management</span>
                     <span class="timeline-tag">Client Relations</span>
                     <span class="timeline-tag">Team Leadership</span>
-                    <span class="timeline-tag">Risk Management</span>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">August 2008 – April 2013</div>
-                <h3 class="timeline-title">Founder & Chief Operating Officer</h3>
+                <h3 class="timeline-title">Founder & COO</h3>
                 <div class="timeline-company">Feed The Crave Ministries</div>
-                <p class="timeline-description">Founded and led a 501(c)(3) non-profit organization focused on providing low-cost, nutrient-dense meals to communities in Central and South America while developing discipleship training programs for churches domestically and internationally. Led all day-to-day operations including supply chain logistics, vendor negotiations, financial oversight, and international shipping coordination. Directed marketing efforts and managed the organization's digital content strategy, increasing visibility and engagement through targeted campaigns. Acted as product manager for the meal programs—ensuring nutritional value, cost-effectiveness, and scalability. Developed curriculum for discipleship training programs, ensuring alignment with the mission and maximizing impact across multiple countries and cultures.</p>
+                <p class="timeline-description">Founded and led a 501(c)(3) non-profit providing low-cost meals to communities in Central and South America. Led all operations including supply chain logistics, vendor negotiations, financial oversight, and international shipping coordination.</p>
                 <div class="timeline-tags">
                     <span class="timeline-tag">Founder</span>
                     <span class="timeline-tag">Operations</span>
                     <span class="timeline-tag">Non-Profit</span>
-                    <span class="timeline-tag">International</span>
                 </div>
             </div>
         </div>
@@ -873,9 +1056,15 @@
 
     <section class="contact" id="contact">
         <div class="contact-content">
-            <h2 class="contact-title">Let's build something <span class="accent">together</span></h2>
-            <p class="contact-description">Looking for my next leadership opportunity in operations, product, or program management—with a passion for leveraging automation and AI to drive results. Let's connect and explore how I can help drive your organization forward.</p>
+            <h2 class="contact-title">Let's <span class="accent">automate</span> something</h2>
+            <p class="contact-description">Got a manual process that's eating hours every week? Let's talk. Free 15-minute audit—I'll tell you exactly what's automatable and what it would take.</p>
             <div class="contact-links">
+                <a href="https://calendly.com/nsheetz09/15-minute-automation-audit" target="_blank" class="contact-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Book a Call
+                </a>
                 <a href="mailto:nsheetz09@gmail.com" class="contact-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -893,7 +1082,7 @@
     </section>
 
     <footer>
-        <p>© 2025 Nick Sheetz. Built with intention.</p>
+        <p>© 2026 Nick Sheetz. Built with intention.</p>
     </footer>
 
     <script>
@@ -915,7 +1104,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.skill-card, .timeline-item').forEach(el => {
+        document.querySelectorAll('.skill-card, .service-card, .timeline-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease';
